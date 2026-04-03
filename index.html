@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario | Red Social</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="form-container">
+        <header class="form-header">
+            <div class="overlay-text">
+                <h1>Registro de Usuario</h1>
+                <p>Completa tus datos. El calendario no permitirá seleccionar fechas futuras.</p>
+            </div>
+        </header>
+
+        <main class="form-body">
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label>Nombre Completo: <span class="required">*</span></label>
+                    <div class="input-row">
+                        <div class="field">
+                            <input type="text" id="nombre" name="nombre" required>
+                            <span class="sub-label">Nombre</span>
+                        </div>
+                        <div class="field">
+                            <input type="text" id="apellido" name="apellido" required>
+                            <span class="sub-label">Apellido</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fechaNacimiento">Fecha de Nacimiento: <span class="required">*</span></label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                    <span class="sub-label">Solo se permiten fechas hasta el día de hoy</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Número de Celular: <span class="required">*</span></label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="300 123 4567" inputmode="numeric" required>
+                    <span class="sub-label">Ingrese los 10 dígitos de su celular</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico: <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@mail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cuáles son tus intereses? <span class="required">*</span></label>
+                    <div class="checkbox-grid">
+                        <label><input type="checkbox" name="interes" value="Informatica"> Informática</label>
+                        <label><input type="checkbox" name="interes" value="Musica"> Música</label>
+                        <label><input type="checkbox" name="interes" value="Arte"> Arte Gráfico</label>
+                        <label><input type="checkbox" name="interes" value="TV"> Televisión</label>
+                    </div>
+                </div>
+
+                <section class="experience-section">
+                    <h2>Trabajo y Experiencia</h2>
+                    <div class="form-group">
+                        <textarea id="experiencia" name="experiencia" rows="5" placeholder="Cuéntanos sobre tu trayectoria laboral..."></textarea>
+                    </div>
+                </section>
+                
+                <button type="submit" class="submit-btn">Registrarse</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>

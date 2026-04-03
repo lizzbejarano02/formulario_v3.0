@@ -7,18 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const establecerFechaMaxima = () => {
         const hoy = new Date();
         const yyyy = hoy.getFullYear();
-        let mm = hoy.getMonth() + 1; // Meses van de 0 a 11
+        let mm = hoy.getMonth() + 1; 
         let dd = hoy.getDate();
 
         if (mm < 10) mm = '0' + mm;
         if (dd < 10) dd = '0' + dd;
 
         const maxDate = `${yyyy}-${mm}-${dd}`;
-        fechaInput.setAttribute("max", maxDate); // Bloquea visualmente el calendario
+        fechaInput.setAttribute("max", maxDate); 
     };
     establecerFechaMaxima();
 
-    // --- 2. MÁSCARA CELULAR (10 DÍGITOS) ---
+    // --- 2. MASCARA CELULAR (10 DIGITOS) ---
     telInput.addEventListener('input', (e) => {
         let val = e.target.value.replace(/\D/g, '').slice(0, 10);
         let formatted = val;
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.target.value = formatted;
     });
 
-    // --- 3. VALIDACIÓN FINAL ---
+    // --- 3. VALIDACION FINAL ---
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -41,31 +41,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let errores = [];
 
-        // Validar Fecha (Que no esté vacía y no sea futura)
         if (!fechaSeleccionada) {
             errores.push("Por favor, seleccione su fecha de nacimiento.");
         } else {
             const fDate = new Date(fechaSeleccionada);
             const hoy = new Date();
             if (fDate > hoy) {
-                errores.push("La fecha no puede ser mayor al día de hoy.");
+                errores.push("La fecha no puede ser mayor al dia de hoy.");
             }
         }
 
-        // Validar Celular (10 dígitos)
         if (celLimpio.length !== 10) {
-            errores.push("El número de celular debe tener exactamente 10 dígitos.");
+            errores.push("El numero de celular debe tener exactamente 10 digitos.");
         }
 
-        // Validar Intereses
         if (intereses.length === 0) {
-            errores.push("Debe elegir al menos un interés.");
+            errores.push("Debe elegir al menos un interes.");
         }
 
         if (errores.length > 0) {
-            alert("⚠️ Errores encontrados:\n\n- " + errores.join("\n- "));
+            alert("Errores encontrados:\n\n- " + errores.join("\n- "));
         } else {
-            alert("✅ Registro exitoso. ¡Bienvenido!");
+            alert("Registro exitoso. Bienvenido!");
             console.log("Datos validados correctamente.");
         }
     });
